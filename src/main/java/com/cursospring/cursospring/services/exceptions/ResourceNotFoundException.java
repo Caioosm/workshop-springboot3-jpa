@@ -1,4 +1,4 @@
-package com.cursospring.cursospring.entities.exceptions;
+package com.cursospring.cursospring.services.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException{
 
