@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cursospring.cursospring.entities.User;
+import com.cursospring.cursospring.entities.exceptions.ResourceNotFoundException;
 import com.cursospring.cursospring.repositories.UserRepository;
 
 @Service
@@ -21,7 +22,7 @@ public class UserService {
 
     public User findById(Long id){
         Optional<User> obj = repository.findById(id);
-        return obj.get();
+        return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
     
     public User insert(User obj){
